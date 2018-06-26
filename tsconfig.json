@@ -1,0 +1,17 @@
+{
+	"compilerOptions": {
+		"target": "es5",
+		"lib":["es2015"],
+		"module": "commonjs",
+		"watch": true,
+		"sourceMap": true,
+		"experimentalDecorators": true,
+		"outDir": "./out"
+	},
+	"exclude": [
+		"node_modules",
+		"out",
+		"example",
+		"test"
+	]
+}
