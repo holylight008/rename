@@ -2,7 +2,7 @@ import * as ts from "typescript";
 import { ScriptInfo } from "./ScriptInfo";
 
 /** 
- * @author featherJ 
+ * 代码快照
  */
 export class ScriptSnapshot implements ts.IScriptSnapshot {
 	public textSnapshot: string;

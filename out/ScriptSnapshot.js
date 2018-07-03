@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
- * @author featherJ
+ * 代码快照
  */
 var ScriptSnapshot = /** @class */ (function () {
     function ScriptSnapshot(scriptInfo) {

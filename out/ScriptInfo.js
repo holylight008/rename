@@ -4,7 +4,7 @@ var ts = require("typescript");
 var fs = require("fs");
 /**
  * 一个代码实体类
- * @author featherJ
+ *
  */
 var ScriptInfo = /** @class */ (function () {
     function ScriptInfo(fileName) {

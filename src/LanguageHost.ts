@@ -1,13 +1,12 @@
 import * as ts from "typescript";
 import { ScriptInfo } from "./ScriptInfo";
 import { ScriptSnapshot } from "./ScriptSnapshot";
-import { POINT_CONVERSION_COMPRESSED } from "constants";
-export class Host implements ts.LanguageServiceHost{
+export class LanguageHost implements ts.LanguageServiceHost{
     public settings:ts.CompilerOptions;
     public fileNames:string[];
     public scripts: Map<string,ScriptInfo>=new Map();
 
-    constructor(settings:ts.CompilerOptions,fileNames:string[]){
+    constructor(fileNames:string[],settings:ts.CompilerOptions){
         this.settings=settings;
         this.fileNames=fileNames;
         fileNames.forEach((name)=>{
@@ -38,8 +37,4 @@ export class Host implements ts.LanguageServiceHost{
     public getScriptInfo(fileName: string): ScriptInfo {
 		return this.scripts.get(fileName);
 	}
-
-    public startLanguageService():ts.LanguageService{
-        return ts.createLanguageService(this);
-    }
 }

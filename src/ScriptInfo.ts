@@ -2,7 +2,7 @@ import * as ts from "typescript";
 import * as fs from "fs";
 /**
  * 一个代码实体类
- * @author featherJ  
+ * 
  */
 export class ScriptInfo {
 	public version: number = 1;

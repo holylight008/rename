@@ -1,10 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var ts = require("typescript");
 var ScriptInfo_1 = require("./ScriptInfo");
 var ScriptSnapshot_1 = require("./ScriptSnapshot");
-var Host = /** @class */ (function () {
-    function Host(settings, fileNames) {
+var LanguageHost = /** @class */ (function () {
+    function LanguageHost(fileNames, settings) {
         var _this = this;
         this.scripts = new Map();
         this.settings = settings;
@@ -13,33 +12,30 @@ var Host = /** @class */ (function () {
             _this.scripts.set(name, new ScriptInfo_1.ScriptInfo(name));
         });
     }
-    Host.prototype.getCompilationSettings = function () {
+    LanguageHost.prototype.getCompilationSettings = function () {
         return this.settings;
     };
-    Host.prototype.getScriptFileNames = function () {
+    LanguageHost.prototype.getScriptFileNames = function () {
         return this.fileNames;
     };
-    Host.prototype.getScriptVersion = function (fileName) {
+    LanguageHost.prototype.getScriptVersion = function (fileName) {
         var script = this.getScriptInfo(fileName);
         return script ? script.version.toString() : undefined;
     };
-    Host.prototype.getScriptSnapshot = function (fileName) {
+    LanguageHost.prototype.getScriptSnapshot = function (fileName) {
         var script = this.getScriptInfo(fileName);
         return script ? new ScriptSnapshot_1.ScriptSnapshot(script) : undefined;
     };
-    Host.prototype.getCurrentDirectory = function () {
+    LanguageHost.prototype.getCurrentDirectory = function () {
         return "";
     };
-    Host.prototype.getDefaultLibFileName = function (options) {
+    LanguageHost.prototype.getDefaultLibFileName = function (options) {
         return (options.hasOwnProperty("target") && options.target === 2) /* ES5 */ ? "lib.es5.d.ts" : "lib.d.ts";
     };
-    Host.prototype.getScriptInfo = function (fileName) {
+    LanguageHost.prototype.getScriptInfo = function (fileName) {
         return this.scripts.get(fileName);
     };
-    Host.prototype.startLanguageService = function () {
-        return ts.createLanguageService(this);
-    };
-    return Host;
+    return LanguageHost;
 }());
-exports.Host = Host;
+exports.LanguageHost = LanguageHost;
 //# sourceMappingURL=Host.js.map
